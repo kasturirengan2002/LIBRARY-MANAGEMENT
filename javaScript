@@ -1,0 +1,50 @@
+// Define an array to store the books
+let books = [];
+
+// Function to add a book to the library
+function addBook(title, author) {
+    books.push({ title: title, author: author });
+}
+
+// Function to display the books in the table
+function displayBooks() {
+    const bookList = document.getElementById('book-list');
+    bookList.innerHTML = '';
+
+    for (let i = 0; i < books.length; i++) {
+        const book = books[i];
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+      <td>${book.title}</td>
+      <td>${book.author}</td>
+      <td><button onclick="removeBook(${i})">Remove</button></td>
+    `;
+
+        bookList.appendChild(row);
+    }
+}
+
+// Function to remove a book from the library
+function removeBook(index) {
+    books.splice(index, 1);
+    displayBooks();
+}
+
+// Handle the form submission
+const bookForm = document.getElementById('book-form');
+bookForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const titleInput = document.getElementById('title-input');
+    const authorInput = document.getElementById('author-input');
+
+    const title = titleInput.value;
+    const author = authorInput.value;
+
+    addBook(title, author);
+    displayBooks();
+
+    titleInput.value = '';
+    authorInput.value = '';
+});

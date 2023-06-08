@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#book-form input {
+  margin-bottom: 10px;
+}
+
+#book-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#book-table th,
+#book-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#book-table th:last-child,
+#book-table td:last-child {
+  text-align: center;
+}
+
+#book-form,
+#book-table {
+  margin-bottom: 20px;
+}
